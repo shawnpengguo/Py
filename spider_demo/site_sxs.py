@@ -1,9 +1,6 @@
-import os
 from fontTools.ttLib import TTFont
 import requests
 from bs4 import BeautifulSoup
-
-from spider_base.use_reg_path import title
 
 sxs_url = "https://www.shixiseng.com/interns?keyword=python&city=%E5%85%A8%E5%9B%BD&type=intern"
 sxs_font_url = "https://www.shixiseng.com/interns/iconfonts/file?rand=0.11867541871369092"
@@ -38,21 +35,14 @@ def req_site():
     res = requests.get(url=sxs_url, headers=headers).text
     soup = BeautifulSoup(res, 'lxml')
     res_div = soup.select('.f-l .intern-detail__job')
-    soup_res = []
+    new_dict = parse_and_write_font()
     for div in res_div:
-        soup_res.append(div.select_one('p').select('a')[0].get('title'))
-    return soup_res
+        cur_title = div.select_one('p').select_one('a')['title'].replace('&#', '0')
+        for k,v in new_dict.items():
+            title = cur_title.replace(k,v)
+            print(k,v,title)
+            # todo 这段有问题没有找到key，排查中～
 
 
-def main():
-    font_res = parse_and_write_font()
-    site_res = req_site()
-    for res in site_res:
-        fm = res.replace('&#', '0')
-        for k, v in font_res.items():
-            ss = fm.replace(k, v)
-            print(ss)
-
-if __name__ == '__main__':
-    main()
+req_site()
 
