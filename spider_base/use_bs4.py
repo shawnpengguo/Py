@@ -8,7 +8,7 @@ headers = {
 
 url = 'https://www.baidu.com/s?wd=python'
 
-html = requests.get(url, headers=headers)
+html = requests.get(url, headers=headers, proxies={'https': 'http://127.0.0.1:8888'}, verify=False)
 html.encoding = 'utf-8'
 # print(html.text)
 

@@ -16,3 +16,11 @@ const CryptoJS = require('./node_modules_crypto')
  * js数字签名算法
  * sm2
  * */
+
+
+/**
+ * 主要记录 charles window 的安装设置（如果 window proxy 不能代理 直接用系统自带的代理开启）
+ * 浏览器 network 的一些缺陷（如不同tab只能开启一个network进行监听请求）
+ * 监听python发出的请求，通过配置 proxy 进行， verify 设为false 取消证书可信
+ * 配置 proxifier 配合 charles 。
+ * */
