@@ -24,3 +24,11 @@ const CryptoJS = require('./node_modules_crypto')
  * 监听python发出的请求，通过配置 proxy 进行， verify 设为false 取消证书可信
  * 配置 proxifier 配合 charles 。
  * */
+
+/**
+ * 主要记录 proxifier 配置 本地连接 charles 进行数据监听（可以去除python 代理，证书还设置为false）
+ * 浏览器 f12 的常用操作：如何查找文件 cmd shift p network进行 status 查询
+ * 对element 父级事件进行讲解 clickListen
+ * 对network 函数堆栈进行事件讲解
+ * 常用post get 头讲解以及 form 表单提交
+ * */
